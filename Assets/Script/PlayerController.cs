@@ -60,13 +60,11 @@ public class PlayerController : MonoBehaviour
 
         if (hit.collider != null)
         {
-            /*
             InteractableObject obj = hit.collider.GetComponent<InteractableObject>();
             if (obj != null)
             {
                 obj.OnAction();
             }
-            */
         }
 
         Debug.DrawRay(transform.position, direction * actionDistance, Color.yellow, 0.2f);
