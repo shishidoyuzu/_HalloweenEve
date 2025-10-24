@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Pumpkin
   - grass
   layers:
   - Default
@@ -13,7 +12,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Interactable
   - 
   - 
   - 
@@ -43,9 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Object
-    uniqueID: 310346007
+  - name: BackGround
+    uniqueID: 2370073079
     locked: 0
   - name: Charactor
     uniqueID: 2935973913
+    locked: 0
+  - name: UI
+    uniqueID: 2532115157
     locked: 0

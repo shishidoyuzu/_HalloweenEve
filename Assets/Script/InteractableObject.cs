@@ -39,11 +39,12 @@ public class InteractableObject : MonoBehaviour
         // すでに反応していたら無視
         if (hasInteracted) return;
 
+        Debug.Log($"(OnAction 呼ばれた！ type = {type}");
+
         switch (type)
         {
             // タイプが草むらの時
             case ObjectType.Grass:
-                Debug.Log("草むらにアクション起こした！");
                 hasInteracted = true;// 反応した
 
                 // まだ生成上限以内 & 確率判定に通ったら生成

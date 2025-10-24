@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     
     // 前方向にどのくらいの長さのRayを飛ばすか
     // （オブジェクトに対するアクション判定の距離）
-    public float actionDistance = 1f;
+    public float actionDistance = 1.0f;
     // Rayがどのレイヤーに当たるかを判定（Interactableレイヤー）
     public LayerMask interactableLayer;
 
@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         else if (moveInput.x > 0)
             spriteRenderer.flipX = true;  // 左向き
 
+        // スペースキーを押したら、アクションする
         if (Input.GetKeyDown(KeyCode.Space))
             TryAction();
     }
@@ -55,8 +56,18 @@ public class PlayerController : MonoBehaviour
 
     void TryAction()
     {
-        Vector2 direction = spriteRenderer.flipX ? Vector2.left : Vector2.right;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, actionDistance, interactableLayer);
+        Vector2 direction;
+        if (spriteRenderer.flipX)
+            direction = Vector2.right; // 右向きなら右
+        else
+            direction = Vector2.left;  // 左向きなら左
+
+        Vector2 origin = (Vector2)transform.position + direction * 0.5f;
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, actionDistance, interactableLayer);
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, actionDistance, interactableLayer);
+        Debug.Log("Rayを飛ばした！");
+        // 飛ばしたRayを表示
+        Debug.DrawRay(transform.position, direction * actionDistance, Color.magenta, 0.2f);
 
         if (hit.collider != null)
         {
@@ -66,8 +77,6 @@ public class PlayerController : MonoBehaviour
                 obj.OnAction();
             }
         }
-
-        Debug.DrawRay(transform.position, direction * actionDistance, Color.magenta, 0.2f);
     }
 }
 

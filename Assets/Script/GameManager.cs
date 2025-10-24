@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         // カウントダウン
         timeLeft -= Time.deltaTime;
         // 制限時間の表示
-        timeText.text = "Time: " + Mathf.CeilToInt(timeLeft);
+        timeText.text = Mathf.FloorToInt(timeLeft).ToString();
 
         // ０秒になる＝時間切れになったら
         if (timeLeft <= 0f)
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     void UpdatePumpkinUI()
     {
-        pumpkinText.text = $"Pumpkins: {collectedPumpkins} / {maxPumpkins}";
+        pumpkinText.text = $"かぼちゃ : {collectedPumpkins} / {maxPumpkins}";
     }
 
     // ゲーム終了
