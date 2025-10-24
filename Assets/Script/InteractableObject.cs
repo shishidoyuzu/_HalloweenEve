@@ -26,6 +26,7 @@ public class InteractableObject : MonoBehaviour
         // プレイヤーに触れる＆タイプがかぼちゃ＆一度も反応していない場合
         if (other.CompareTag("Player") && type == ObjectType.Pumpkin && !hasInteracted)
         {
+            Debug.Log("かぼちゃを拾った！");
             hasInteracted = true; // 反応した
             GameManager.instance.CollectPumpkin(); // スコア加算
             Destroy(gameObject); // 自分（かぼちゃ）を消す
@@ -42,6 +43,7 @@ public class InteractableObject : MonoBehaviour
         {
             // タイプが草むらの時
             case ObjectType.Grass:
+                Debug.Log("草むらにアクション起こした！");
                 hasInteracted = true;// 反応した
 
                 // まだ生成上限以内 & 確率判定に通ったら生成

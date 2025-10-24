@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        Debug.DrawRay(transform.position, direction * actionDistance, Color.yellow, 0.2f);
+        Debug.DrawRay(transform.position, direction * actionDistance, Color.magenta, 0.2f);
     }
 }
 
