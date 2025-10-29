@@ -17,7 +17,7 @@ public class InteractableObject : MonoBehaviour
 
     [Header("Grass用設定")]
     public GameObject pumpkinPrefab; // 草から出るかぼちゃのプレハブ
-    [Range(0f, 1f)] public float spawnChance = 0.4f; // 出現確率（40%）
+    [Range(0f, 1f)] public float spawnChance = 1.0f; // 出現確率（40%）
 
     private bool hasInteracted = false; // 一度きりにするためのフラグ
 
