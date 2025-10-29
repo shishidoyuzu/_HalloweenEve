@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3571088747379697321}
   - component: {fileID: 6939964588052120631}
-  - component: {fileID: 8654363857886685399}
   - component: {fileID: 8694436877965095202}
+  - component: {fileID: 8654363857886685399}
   m_Layer: 6
   m_Name: grass_
   m_TagString: grass
@@ -86,21 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8654363857886685399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1012986607709407586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 802a681e81d8e1b4a910cbd13a99ce8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  pumpkinPrefab: {fileID: 8870281795907015457, guid: 5685edb8b62c4334e8faea35bcee9319, type: 3}
-  spawnChance: 0.4
 --- !u!70 &8694436877965095202
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +121,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.5}
   m_Size: {x: 5, y: 2.73}
   m_Direction: 1
+--- !u!114 &8654363857886685399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012986607709407586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802a681e81d8e1b4a910cbd13a99ce8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  pumpkinPrefab: {fileID: 8870281795907015457, guid: 5685edb8b62c4334e8faea35bcee9319, type: 3}
+  spawnChance: 0.4

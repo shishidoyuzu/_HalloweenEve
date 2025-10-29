@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8342945765723698260}
   - component: {fileID: 4786626453092674951}
-  - component: {fileID: -7749249519996872349}
   - component: {fileID: 4891203223871155677}
+  - component: {fileID: -7749249519996872349}
   m_Layer: 6
   m_Name: tree_
   m_TagString: Untagged
@@ -86,21 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7749249519996872349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3876955952760795943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 802a681e81d8e1b4a910cbd13a99ce8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 2
-  pumpkinPrefab: {fileID: 0}
-  spawnChance: 0.4
 --- !u!61 &4891203223871155677
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,3 +131,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.38, y: 2.9}
   m_EdgeRadius: 0
+--- !u!114 &-7749249519996872349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876955952760795943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802a681e81d8e1b4a910cbd13a99ce8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  pumpkinPrefab: {fileID: 0}
+  spawnChance: 0.4

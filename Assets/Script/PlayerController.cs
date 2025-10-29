@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         // Rigidbody2Dの取得
         rb = GetComponent<Rigidbody2D>();
         // SpriteRendererの取得
-        spriteRenderer = rb.GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -39,9 +39,9 @@ public class PlayerController : MonoBehaviour
 
         // 向き反転処理
         if (moveInput.x < 0)
-            spriteRenderer.flipX = false; // 右向き
+            spriteRenderer.flipX = false; // 右
         else if (moveInput.x > 0)
-            spriteRenderer.flipX = true;  // 左向き
+            spriteRenderer.flipX = true;  // 左
 
         // スペースキーを押したら、アクションする
         if (Input.GetKeyDown(KeyCode.Space))
@@ -56,13 +56,9 @@ public class PlayerController : MonoBehaviour
 
     void TryAction()
     {
-        Vector2 direction;
-        if (spriteRenderer.flipX)
-            direction = Vector2.right; // 右向きなら右
-        else
-            direction = Vector2.left;  // 左向きなら左
-
+        Vector2 direction = spriteRenderer.flipX ? Vector2.left : Vector2.right;
         Vector2 origin = (Vector2)transform.position + direction * 0.5f;
+
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, actionDistance, interactableLayer);
         Debug.Log("Rayを飛ばした！");
 
