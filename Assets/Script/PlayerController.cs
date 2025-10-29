@@ -12,13 +12,13 @@ public class PlayerController : MonoBehaviour
     // Rigidbody2D
     private Rigidbody2D rb;
     
-    // 前方向にどのくらいの長さのRayを飛ばすか
-    // （オブジェクトに対するアクション判定の距離）
+    // 前方向にどのくらいの長さのRayを飛ばすか（オブジェクトに対するアクション判定の距離）
     public float actionDistance = 1.0f;
     // Rayがどのレイヤーに当たるかを判定（Interactableレイヤー）
     public LayerMask interactableLayer;
 
-    // Start is called before the first frame update
+    private Animator animator;
+
 
     void Start()
     {
@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         // SpriteRendererの取得
         spriteRenderer = GetComponent<SpriteRenderer>();
+        // Animatorの取得
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -33,10 +35,9 @@ public class PlayerController : MonoBehaviour
         // 移動入力の取得
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
-
         // 斜め移動の際、移動速度を上下左右の移動速度になる
         moveInput.Normalize();
-
+        
         // 向き反転処理
         if (moveInput.x < 0)
             spriteRenderer.flipX = false; // 右
@@ -46,6 +47,9 @@ public class PlayerController : MonoBehaviour
         // スペースキーを押したら、アクションする
         if (Input.GetKeyDown(KeyCode.Space))
             TryAction();
+
+        bool isMoving = moveInput.sqrMagnitude > 0;
+        animator.SetBool("isMoving", isMoving);
     }
 
     void FixedUpdate()
