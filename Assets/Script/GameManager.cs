@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
         // UIを初期化
         UpdatePumpkinUI();
 
+        // リザルト用のUIがあれば
         if (resultUI != null)
             resultUI.SetActive(false); // リザルト画面の非表示
     }
@@ -68,12 +69,14 @@ public class GameManager : MonoBehaviour
     // かぼちゃ取得
     public void CollectPumpkin()
     {
+        // かぼちゃの数を＋１する
         collectedPumpkins++;
         UpdatePumpkinUI();
     }
 
     void UpdatePumpkinUI()
     {
+        // ＋１したかぼちゃの数を更新する
         pumpkinText.text = $"かぼちゃ : {collectedPumpkins} / {maxPumpkins}";
     }
 
@@ -82,8 +85,10 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
 
+        // リザルト用のUIがあれば
         if (resultUI != null)
         {
+            // 表示して、集めたかぼちゃの数を出す
             resultUI.SetActive(true);
             resultText.text = $"あつめたかぼちゃ: {collectedPumpkins} / {maxPumpkins}";
         }
@@ -92,6 +97,7 @@ public class GameManager : MonoBehaviour
     // シーン切り替え（ボタン用）
     public void Retry()
     {
+        // 今アクティブになっているシーンをもう一度読み込む
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

@@ -64,8 +64,8 @@ public class PlayerController : MonoBehaviour
 
         Vector2 origin = (Vector2)transform.position + direction * 0.5f;
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, actionDistance, interactableLayer);
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, actionDistance, interactableLayer);
         Debug.Log("Ray‚ğ”ò‚Î‚µ‚½I");
+
         // ”ò‚Î‚µ‚½Ray‚ğ•\¦
         Debug.DrawRay(transform.position, direction * actionDistance, Color.magenta, 0.2f);
 

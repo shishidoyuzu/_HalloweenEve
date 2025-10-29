@@ -5,6 +5,7 @@ public class InteractableObject : MonoBehaviour
     // どんなタイプのオブジェクトか
     public enum ObjectType
     {
+        None,//タイプがない状態
         Pumpkin, // 拾えるかぼちゃ
         Grass,   // 調べると出るかぼちゃ
         Tree,    // 木
@@ -19,6 +20,14 @@ public class InteractableObject : MonoBehaviour
     [Range(0f, 1f)] public float spawnChance = 0.4f; // 出現確率（40%）
 
     private bool hasInteracted = false; // 一度きりにするためのフラグ
+
+    private void Start()
+    {
+        if (type == ObjectType.None)
+        {
+            Debug.LogWarning($"{gameObject.name} の ObjectType が設定されていません！");
+        }
+    }
 
     // プレイヤーが触れた時（かぼちゃ用）
     private void OnTriggerEnter2D(Collider2D other)
