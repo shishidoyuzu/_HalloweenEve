@@ -8,7 +8,6 @@ public class InteractableObject : MonoBehaviour
         None,//タイプがない状態
         Pumpkin, // 拾えるかぼちゃ
         Grass,   // 調べると出るかぼちゃ
-        Tree,    // 木
         LeafPile,// 落ち葉
     }
 

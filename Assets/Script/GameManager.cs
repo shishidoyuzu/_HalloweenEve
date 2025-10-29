@@ -47,9 +47,9 @@ public class GameManager : MonoBehaviour
         if (isGameOver) return;
 
         // カウントダウン
-        timeLeft -= Time.deltaTime;
+        timeLeft = Mathf.Max(0f, timeLeft - Time.deltaTime);
         // 制限時間の表示
-        timeText.text = Mathf.FloorToInt(timeLeft).ToString();
+        timeText.text = Mathf.CeilToInt(timeLeft).ToString();
 
         // ０秒になる＝時間切れになったら
         if (timeLeft <= 0f)
@@ -84,6 +84,11 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         isGameOver = true;
+
+        // プレイヤーの操作を停止
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player != null)
+            player.enabled = false;
 
         // リザルト用のUIがあれば
         if (resultUI != null)
