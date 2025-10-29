@@ -36,6 +36,7 @@ public class InteractableObject : MonoBehaviour
     // プレイヤーがアクション（スペースキー）したとき
     public void OnAction()
     {
+        Debug.Log("OnAction関数に来た！");
         // すでに反応していたら無視
         if (hasInteracted) return;
 
