@@ -10,7 +10,7 @@ public class SpawnObject
 public class MapGenerator : MonoBehaviour
 {
     [Header("マップ範囲（中心を原点にする）")]
-    public Vector2 mapSize = new Vector2(20.0f, 10.0f);
+    public Vector2 mapSize = new Vector2(15.0f, 7.0f);
 
     [Header("生成オブジェクトリスト")]
     public SpawnObject[] spawnObjects;

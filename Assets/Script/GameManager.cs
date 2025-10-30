@@ -1,5 +1,5 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -7,14 +7,19 @@ public class GameManager : MonoBehaviour
     public static GameManager instance; // シングルトン
 
     [Header("UI参照")]
-    public Text timeText;       // 時間表示テキスト
-    public Text pumpkinText;    // かぼちゃテキスト
-    public GameObject resultUI; // リザルトUI
-    public Text resultText;     // リザルトテキスト
+    public TextMeshProUGUI timeText;       // 時間表示テキスト
+    public TextMeshProUGUI pumpkinText;    // かぼちゃテキスト
+    public GameObject resultUI;            // リザルトUI
+    public TextMeshProUGUI resultText;     // リザルトテキスト
 
     [Header("ゲーム設定")]
     public float timeLimit = 60f;// 制限時間
-    public int maxPumpkins = 10;// マップに存在するかぼちゃ
+    public int maxPumpkins = 10; // マップに存在するかぼちゃ
+
+    [Header("生成するプレハブ")]
+    public GameObject pumpkinPrefab; // かぼちゃプレハブ
+    public GameObject grassPrefab;   // 草むらプレハブ
+
 
     private float timeLeft;
     private int currentPumpkins = 0;   // 生成された数
@@ -41,6 +46,10 @@ public class GameManager : MonoBehaviour
         // リザルト用のUIがあれば
         if (resultUI != null)
             resultUI.SetActive(false); // リザルト画面の非表示
+
+        //timeText = GetComponent<TextMeshProUGUI>();
+        //pumpkinText = GetComponent<TextMeshProUGUI>();
+        resultText = GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
@@ -67,19 +76,42 @@ public class GameManager : MonoBehaviour
     RegisterPumpkin()・・・生成したよ！ってカウントを増やす
      */
 
-
     // かぼちゃ取得
     public void CollectPumpkin()
     {
         // かぼちゃの数を＋１する
         collectedPumpkins++;
         UpdatePumpkinUI();
+
+        // マップ内にかぼちゃか草むらを生成する
+        RandomSpawnObj();
     }
 
     void UpdatePumpkinUI()
     {
         // ＋１したかぼちゃの数を更新する
         pumpkinText.text = $"かぼちゃ : {collectedPumpkins}";
+    }
+
+    public void RandomSpawnObj()
+    {
+        // MapGeneratorからマップ範囲を取得
+        MapGenerator mapGenerator = FindObjectOfType<MapGenerator>();
+        if(mapGenerator == null) return; // MapGeneratorがない場合、抜ける
+
+        float map_width  = mapGenerator.mapSize.x;
+        float map_height = mapGenerator.mapSize.y;
+
+        // マップ範囲の中で生成位置をランダムで取得
+        Vector2 Random_SpawnPos = new Vector2(
+            Random.Range(-map_width, map_height),
+            Random.Range(-map_height, map_width));
+
+        // 半分の確率で「かぼちゃ」か「草むら」が生成される
+        if (Random.value < 0.5f)
+            Instantiate(pumpkinPrefab, Random_SpawnPos, Quaternion.identity);
+        else
+            Instantiate(grassPrefab, Random_SpawnPos, Quaternion.identity);
     }
 
     // ゲーム終了

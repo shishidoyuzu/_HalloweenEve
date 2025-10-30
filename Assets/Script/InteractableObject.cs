@@ -17,7 +17,7 @@ public class InteractableObject : MonoBehaviour
 
     [Header("Grass用設定")]
     public GameObject pumpkinPrefab; // 草から出るかぼちゃのプレハブ
-    [Range(0f, 1f)] public float spawnChance = 1.0f; // 出現確率（40%）
+    [Range(0f, 1f)] public float spawnChance = 0.6f; // 出現確率（60%）
 
     private bool hasInteracted = false; // 一度きりにするためのフラグ
     // （草むらから出てきたかぼちゃを）拾えるかどうか
@@ -87,13 +87,13 @@ public class InteractableObject : MonoBehaviour
                 {
                     GameObject pumpkin = Instantiate(pumpkinPrefab, transform.position, Quaternion.identity);
                     GameManager.instance.RegisterPumpkin(); // 生成カウント＋1
-
-                    // 草むらから出てきたかぼちゃに演出をつける
-                    //StartCoroutine(SpawnEffect(pumpkin));
-                    //EnableCollect();
                 }
 
                 Destroy(gameObject); // 草を消す（調べ終わり）
+
+                // マップ内にかぼちゃか草むらを生成する
+                GameManager.instance.RandomSpawnObj();
+
                 break;
 
             case ObjectType.LeafPile:
@@ -102,52 +102,5 @@ public class InteractableObject : MonoBehaviour
                 Destroy(gameObject);
                 break;
         }
-    }
-
-    // かぼちゃ出現アニメーション
-    IEnumerator SpawnEffect(GameObject pumpkin)
-    {
-        SpriteRenderer sr = pumpkin.GetComponent<SpriteRenderer>();
-        if (sr == null) yield break;
-
-        // ←ここ追加
-        // 元のマテリアルを壊さない
-        sr.sharedMaterial = Shader.Find("Sprites/Default") != null
-            ? sr.sharedMaterial
-            : new Material(Shader.Find("Sprites/Default"));
-
-        sr.material.renderQueue = 3000; // 透明描画の順番を明示
-        sr.sortingLayerName = "Character"; // レイヤーを明示（草に隠れないように）
-
-        Color c = sr.color;
-        c.a = 0f;
-        sr.color = c;
-
-        Vector3 startPos = pumpkin.transform.position - new Vector3(0, 0.5f, 0);
-        Vector3 endPos = pumpkin.transform.position;
-        pumpkin.transform.position = startPos;
-
-        float duration = 0.3f; // フェードイン速度
-        float timer = 0f;
-
-        while (timer < duration)
-        {
-            timer += Time.deltaTime;
-            float t = timer / duration;
-
-            // 上昇＋フェードイン
-            pumpkin.transform.position = Vector3.Lerp(startPos, endPos, t);
-            c.a = Mathf.Lerp(0f, 1f, t);
-            sr.color = c;
-            Debug.Log($"Alpha: {sr.color.a}");
-
-
-            yield return null;
-        }
-
-        // 最終状態を強制的に完全不透明に
-        Color finalColor = sr.color;
-        finalColor.a = 1f;
-        sr.color = finalColor;
     }
 }
