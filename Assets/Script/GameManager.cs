@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,8 +8,6 @@ public class GameManager : MonoBehaviour
     [Header("UI参照")]
     public TextMeshProUGUI timeText;       // 時間表示テキスト
     public TextMeshProUGUI pumpkinText;    // かぼちゃテキスト
-    public GameObject resultUI;            // リザルトUI
-    public TextMeshProUGUI resultText;     // リザルトテキスト
 
     [Header("ゲーム設定")]
     public float timeLimit = 60f;// 制限時間
@@ -48,10 +45,6 @@ public class GameManager : MonoBehaviour
         timeLeft = timeLimit;
         // UIを初期化
         UpdatePumpkinUI();
-
-        // リザルト用のUIがあれば
-        if (resultUI != null)
-            resultUI.SetActive(false); // リザルト画面の非表示
     }
 
     void Update()
@@ -117,24 +110,19 @@ public class GameManager : MonoBehaviour
         if (player != null)
             player.enabled = false;
 
-        // リザルト用のUIがあれば
-        if (resultUI != null)
+        // スコアを保存しておく（Resultで表示）
+        PlayerPrefs.SetInt("PumpkinScore", collectedPumpkins);
+
+        ChangeScene changer = FindObjectOfType<ChangeScene>();
+        if (changer != null)
         {
-            // 表示して、集めたかぼちゃの数を出す
-            resultUI.SetActive(true);
-            resultText.text = $"あつめたかぼちゃ: {collectedPumpkins}";
+            changer.GoToResult("Result");
         }
-    }
-
-    // シーン切り替え（ボタン用）
-    public void Retry()
-    {
-        // 今アクティブになっているシーンをもう一度読み込む
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void BackToTitle()
-    {
-        SceneManager.LoadScene("TitleScene");
+        else
+        {
+            string SceneName = "Result";
+            // フェードが無い場合は直接遷移
+            Initiate.Fade(SceneName, Color.black, 1.0f);
+        }
     }
 }
