@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|C:\\Users\\GA2A\\Desktop\\Halloween Eve\\assets\\script\\interactableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\interactableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|c:\\users\\ga2a\\desktop\\halloween eve\\assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|c:\\users\\ga2a\\desktop\\halloween eve\\assets\\script\\mapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\mapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|C:\\Users\\GA2A\\Desktop\\Halloween Eve\\assets\\script\\interactableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\interactableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,20 +30,20 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\GA2A\\Desktop\\Halloween Eve\\Assets\\Script\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\GameManager.cs",
               "ToolTip": "C:\\Users\\GA2A\\Desktop\\Halloween Eve\\Assets\\Script\\GameManager.cs",
               "RelativeToolTip": "Assets\\Script\\GameManager.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAMwFUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAcwFUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-24T05:36:43.241Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MapGenerator.cs",
               "DocumentMoniker": "C:\\Users\\GA2A\\Desktop\\Halloween Eve\\Assets\\Script\\MapGenerator.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MapGenerator.cs",
@@ -56,15 +56,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "InteractableObject.cs",
               "DocumentMoniker": "C:\\Users\\GA2A\\Desktop\\Halloween Eve\\Assets\\Script\\InteractableObject.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\InteractableObject.cs",
               "ToolTip": "C:\\Users\\GA2A\\Desktop\\Halloween Eve\\Assets\\Script\\InteractableObject.cs",
               "RelativeToolTip": "Assets\\Script\\InteractableObject.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAwDoAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAIwCsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T05:05:43.94Z"
+              "WhenOpened": "2025-10-23T05:05:43.94Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -74,7 +75,7 @@
               "RelativeDocumentMoniker": "Assets\\Script\\PlayerController.cs",
               "ToolTip": "C:\\Users\\GA2A\\Desktop\\Halloween Eve\\Assets\\Script\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Script\\PlayerController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAIwEMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAIwDsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-23T04:29:43.621Z",
               "EditorCaption": ""

@@ -28,9 +28,16 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+
+            // ÉVÅ[ÉìÇÇ‹ÇΩÇ¢Ç≈Ç‡è¡Ç¶Ç»Ç¢
+            DontDestroyOnLoad(gameObject);
+        }
         else
+        {
             Destroy(gameObject);
+        }
 
         Application.targetFrameRate = 60;
     }
