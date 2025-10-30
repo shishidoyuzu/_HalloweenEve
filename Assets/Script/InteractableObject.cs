@@ -89,8 +89,8 @@ public class InteractableObject : MonoBehaviour
                     GameManager.instance.RegisterPumpkin(); // 生成カウント＋1
 
                     // 草むらから出てきたかぼちゃに演出をつける
-                    StartCoroutine(SpawnEffect(pumpkin));
-                    EnableCollect();
+                    //StartCoroutine(SpawnEffect(pumpkin));
+                    //EnableCollect();
                 }
 
                 Destroy(gameObject); // 草を消す（調べ終わり）

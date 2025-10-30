@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     void UpdatePumpkinUI()
     {
         // ＋１したかぼちゃの数を更新する
-        pumpkinText.text = $"かぼちゃ : {collectedPumpkins} / {maxPumpkins}";
+        pumpkinText.text = $"かぼちゃ : {collectedPumpkins}";
     }
 
     // ゲーム終了
@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
         {
             // 表示して、集めたかぼちゃの数を出す
             resultUI.SetActive(true);
-            resultText.text = $"あつめたかぼちゃ: {collectedPumpkins} / {maxPumpkins}";
+            resultText.text = $"あつめたかぼちゃ: {collectedPumpkins}";
         }
     }
 
