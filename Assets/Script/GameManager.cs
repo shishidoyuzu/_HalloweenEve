@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     public GameObject pumpkinPrefab; // かぼちゃプレハブ
     public GameObject grassPrefab;   // 草むらプレハブ
 
+    [Header("サウンド設定")]
+    public AudioClip pumpkinSE;  // かぼちゃを取った音
+    public AudioClip grassSE;    // 草を調べた音
+    private AudioSource seSource;
 
     private float timeLeft;
     private int collectedPumpkins = 0; // 拾った数
@@ -24,26 +28,46 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
+        // シーン開始時にUIなどを再取得
+        if (pumpkinText == null)
+            pumpkinText = GameObject.Find("PumpkinText")?.GetComponent<TextMeshProUGUI>();
+        if (timeText == null)
+            timeText = GameObject.Find("TimeText")?.GetComponent<TextMeshProUGUI>();
 
-            // シーンをまたいでも消えない
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        Application.targetFrameRate = 60;
+        seSource = gameObject.AddComponent<AudioSource>();
     }
 
     void Start()
     {
+        // BGMの再生
+        if (BGMManager.instance != null)
+        {
+            BGMManager.instance.PlayBGM(BGMManager.instance.gameBGM);
+        }
+
         // 制限時間の初期化
         timeLeft = timeLimit;
-        // UIを初期化
+
+        // UI参照が切れていたら再取得
+        if (pumpkinText == null)
+        {
+            var pumpkinObj = GameObject.Find("PumpkinText");
+            if (pumpkinObj != null)
+                pumpkinText = pumpkinObj.GetComponent<TextMeshProUGUI>();
+            else
+                Debug.LogWarning("PumpkinText が見つかりません！");
+        }
+
+        if (timeText == null)
+        {
+            var timeObj = GameObject.Find("TimeText");
+            if (timeObj != null)
+                timeText = timeObj.GetComponent<TextMeshProUGUI>();
+            else
+                Debug.LogWarning("TimeText が見つかりません！");
+        }
+
+        // UI初期化
         UpdatePumpkinUI();
     }
 
@@ -124,5 +148,12 @@ public class GameManager : MonoBehaviour
             // フェードが無い場合は直接遷移
             Initiate.Fade(SceneName, Color.black, 1.0f);
         }
+    }
+
+    public void PlaySE(AudioClip clip)
+    {
+        Debug.Log("PlaySE来た");
+        if (clip == null) return;
+        seSource.PlayOneShot(clip);
     }
 }

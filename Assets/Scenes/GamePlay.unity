@@ -222,12 +222,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 1090586371}
   pumpkinText: {fileID: 416447648}
-  resultUI: {fileID: 0}
-  resultText: {fileID: 0}
   timeLimit: 60
   maxPumpkins: 10
   pumpkinPrefab: {fileID: 8870281795907015457, guid: 5685edb8b62c4334e8faea35bcee9319, type: 3}
   grassPrefab: {fileID: 1012986607709407586, guid: cbd5708b6cd893645be0025fda890c6a, type: 3}
+  pumpkinSE: {fileID: 8300000, guid: 235d786fdce004d44997fe1392c8cb17, type: 3}
+  grassSE: {fileID: 8300000, guid: e3b155d63c52a2c4eaa3c79ac3aaeb5e, type: 3}
 --- !u!4 &132206034
 Transform:
   m_ObjectHideFlags: 0

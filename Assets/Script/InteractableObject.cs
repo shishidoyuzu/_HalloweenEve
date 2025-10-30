@@ -26,6 +26,8 @@ public class InteractableObject : MonoBehaviour
 
     private void Start()
     {
+        GameManager gm = FindObjectOfType<GameManager>();
+
         if (type == ObjectType.None)
         {
             Debug.LogWarning($"{gameObject.name} の ObjectType が設定されていません！");
@@ -47,7 +49,14 @@ public class InteractableObject : MonoBehaviour
         {
             Debug.Log("かぼちゃを拾った！");
             hasInteracted = true; // 反応した
-            GameManager.instance.CollectPumpkin(); // スコア加算
+            
+            // 安全にGameManagerを探してスコア加算
+            GameManager gm = FindObjectOfType<GameManager>();
+            if (gm != null)
+            {
+                gm.CollectPumpkin();
+                gm?.PlaySE(gm.pumpkinSE);
+            }
             Destroy(gameObject); // 自分（かぼちゃ）を消す
         }
     }
@@ -60,7 +69,7 @@ public class InteractableObject : MonoBehaviour
     // プレイヤーがアクション（スペースキー）したとき
     public void OnAction()
     {
-        Debug.Log("OnAction関数に来た！");
+        GameManager gm = FindObjectOfType<GameManager>();
 
         // 拾えない間は何も起きない
         if (!canBeCollected) return;
@@ -71,17 +80,10 @@ public class InteractableObject : MonoBehaviour
 
         switch (type)
         {
-            // タイプがかぼちゃの時
-            case ObjectType.Pumpkin:
-                Debug.Log("かぼちゃをゲット！");
-                hasInteracted = true;
-                Destroy(gameObject);
-                break;
-
             // タイプが草むらの時
             case ObjectType.Grass:
                 hasInteracted = true;// 反応した
-
+                gm?.PlaySE(gm.grassSE);
                 // まだ生成上限以内 & 確率判定に通ったら生成
                 if (Random.value < spawnChance)
                 {

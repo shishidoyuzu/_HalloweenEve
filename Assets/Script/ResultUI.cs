@@ -16,11 +16,11 @@ public class ResultUI : MonoBehaviour
 
         // スコアに応じたメッセージを切り替える
         if (score >= 60)
-            messageText.text = "とても大量のかぼちゃを集めれた！\nかぼちゃを集めるのに夢中になっちゃった…";
+            messageText.text = "とても大量のかぼちゃを集めれた！かぼちゃを集めるのに夢中になっちゃった…";
         else if (score >= 50)
-            messageText.text = "たくさんのかぼちゃを集めれた！\nもう持ちきれない…！";
+            messageText.text = "たくさんのかぼちゃを集めれた！もう持ちきれない…！";
         else if (score >= 40)
-            messageText.text = "いっぱいかぼちゃを集めれた！\n集めすぎたかな…？";
+            messageText.text = "いっぱいかぼちゃを集めれた！集めすぎたかな…？";
         else if (score >= 30)
             messageText.text = "十分な量のかぼちゃを集めれた！";
         else if (score >= 20)
@@ -30,7 +30,7 @@ public class ResultUI : MonoBehaviour
         else if (score >= 1)
             messageText.text = "ちょっとだけかぼちゃを集めれた！";
         else if (score == 0)
-            messageText.text = "１個も拾えなかった…\nもう１度行こう…";
+            messageText.text = "１個も拾えなかった…。もう１度行こう…";
         else
             messageText.text = "予測してない数値";
     }
