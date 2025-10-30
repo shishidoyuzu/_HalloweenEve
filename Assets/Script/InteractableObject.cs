@@ -83,10 +83,12 @@ public class InteractableObject : MonoBehaviour
                 hasInteracted = true;// 反応した
 
                 // まだ生成上限以内 & 確率判定に通ったら生成
-                if (GameManager.instance.CanSpawnPumpkin() && Random.value < spawnChance)
+                if (Random.value < spawnChance)
                 {
-                    GameObject pumpkin = Instantiate(pumpkinPrefab, transform.position, Quaternion.identity);
-                    GameManager.instance.RegisterPumpkin(); // 生成カウント＋1
+                    GameObject pumpkin = Instantiate(
+                        pumpkinPrefab, 
+                        transform.position + Vector3.down * 0.2f, 
+                        Quaternion.identity);
                 }
 
                 Destroy(gameObject); // 草を消す（調べ終わり）

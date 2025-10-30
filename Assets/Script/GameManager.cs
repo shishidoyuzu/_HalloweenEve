@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
 
 
     private float timeLeft;
-    private int currentPumpkins = 0;   // 生成された数
     private int collectedPumpkins = 0; // 拾った数
     private bool isGameOver = false;
 
@@ -46,10 +45,6 @@ public class GameManager : MonoBehaviour
         // リザルト用のUIがあれば
         if (resultUI != null)
             resultUI.SetActive(false); // リザルト画面の非表示
-
-        //timeText = GetComponent<TextMeshProUGUI>();
-        //pumpkinText = GetComponent<TextMeshProUGUI>();
-        resultText = GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
@@ -66,15 +61,6 @@ public class GameManager : MonoBehaviour
         if (timeLeft <= 0f)
             EndGame();
     }
-
-    // かぼちゃ生成管理
-    public bool CanSpawnPumpkin() => currentPumpkins < maxPumpkins;
-    public void RegisterPumpkin() => currentPumpkins++;
-
-    /*
-    CanSpawnPumpkin()・・・かぼちゃ生成してもいいかGameManagerに確認
-    RegisterPumpkin()・・・生成したよ！ってカウントを増やす
-     */
 
     // かぼちゃ取得
     public void CollectPumpkin()
@@ -104,8 +90,8 @@ public class GameManager : MonoBehaviour
 
         // マップ範囲の中で生成位置をランダムで取得
         Vector2 Random_SpawnPos = new Vector2(
-            Random.Range(-map_width, map_height),
-            Random.Range(-map_height, map_width));
+            Random.Range(-map_width  / 2f, map_height / 2f),
+            Random.Range(-map_height / 2f, map_width / 2f));
 
         // 7:3の確率で「かぼちゃ」か「草むら」が生成される
         if (Random.value < 0.7f)
