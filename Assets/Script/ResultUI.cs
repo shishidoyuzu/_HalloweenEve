@@ -27,7 +27,11 @@ public class ResultUI : MonoBehaviour
             messageText.text = "それなりかぼちゃを集めれた！";
         else if (score >= 10)
             messageText.text = "少しのかぼちゃを集めれた！";
-        else
+        else if (score >= 1)
+            messageText.text = "ちょっとだけかぼちゃを集めれた！";
+        else if (score == 0)
             messageText.text = "１個も拾えなかった…\nもう１度行こう…";
+        else
+            messageText.text = "予測してない数値";
     }
 }
