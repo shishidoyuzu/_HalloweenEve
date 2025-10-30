@@ -135,4 +135,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   pumpkinPrefab: {fileID: 0}
-  spawnChance: 0.4
+  spawnChance: 0.6

@@ -107,8 +107,8 @@ public class GameManager : MonoBehaviour
             Random.Range(-map_width, map_height),
             Random.Range(-map_height, map_width));
 
-        // 半分の確率で「かぼちゃ」か「草むら」が生成される
-        if (Random.value < 0.5f)
+        // 7:3の確率で「かぼちゃ」か「草むら」が生成される
+        if (Random.value < 0.7f)
             Instantiate(pumpkinPrefab, Random_SpawnPos, Quaternion.identity);
         else
             Instantiate(grassPrefab, Random_SpawnPos, Quaternion.identity);

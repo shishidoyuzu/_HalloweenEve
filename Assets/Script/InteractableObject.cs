@@ -90,10 +90,6 @@ public class InteractableObject : MonoBehaviour
                 }
 
                 Destroy(gameObject); // 草を消す（調べ終わり）
-
-                // マップ内にかぼちゃか草むらを生成する
-                GameManager.instance.RandomSpawnObj();
-
                 break;
 
             case ObjectType.LeafPile:
