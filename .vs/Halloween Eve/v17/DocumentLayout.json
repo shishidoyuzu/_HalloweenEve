@@ -1,54 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\GA2A\\Desktop\\Halloween Eve\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|c:\\users\\ga2a\\desktop\\halloween eve\\assets\\script\\resultui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\resultui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|c:\\users\\ga2a\\desktop\\halloween eve\\assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B937C0AE-B309-F3D8-911A-FD03D32F1755}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\GA2A\\Desktop\\Halloween Eve\\Assets\\Script\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\GameManager.cs",
-              "ToolTip": "C:\\Users\\GA2A\\Desktop\\Halloween Eve\\Assets\\Script\\GameManager.cs",
-              "RelativeToolTip": "Assets\\Script\\GameManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T06:42:25.708Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ResultUI.cs",
-              "DocumentMoniker": "C:\\Users\\GA2A\\Desktop\\Halloween Eve\\Assets\\Script\\ResultUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\ResultUI.cs",
-              "ToolTip": "C:\\Users\\GA2A\\Desktop\\Halloween Eve\\Assets\\Script\\ResultUI.cs*",
-              "RelativeToolTip": "Assets\\Script\\ResultUI.cs*",
-              "ViewState": "AgIAAAUAAAAAAAAAAADwvx0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T06:33:44.28Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

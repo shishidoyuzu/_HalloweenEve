@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     [Header("ƒTƒEƒ“ƒhİ’è")]
     public AudioClip pumpkinSE;  // ‚©‚Ú‚¿‚á‚ğæ‚Á‚½‰¹
     public AudioClip grassSE;    // ‘‚ğ’²‚×‚½‰¹
-    private AudioSource seSource;
+    public AudioSource seSource;
 
     private float timeLeft;
     private int collectedPumpkins = 0; // E‚Á‚½”
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         if (timeText == null)
             timeText = GameObject.Find("TimeText")?.GetComponent<TextMeshProUGUI>();
 
-        seSource = gameObject.AddComponent<AudioSource>();
+        //seSource = gameObject.AddComponent<AudioSource>();
     }
 
     void Start()
